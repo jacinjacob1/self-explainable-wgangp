@@ -227,7 +227,7 @@ cross-dataset 254.08; ratio 1.35.
 ```bibtex
 @article{accesskmex2026,
   title   = {Self-Explainable WGAN-GP for Brain Tumor MRI Synthesis Using KMEx Prototype Learning},
-  author  = {<authors>},
+  author  = {Jacin Jacob, Dr. Nisha V M},
   journal = {IEEE Access},
   year    = {2026},
   note    = {Manuscript ID Access-2026-09588}
