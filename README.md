@@ -53,7 +53,7 @@ the explanation scaffold.
 ## Installation
 
 ```bash
-git clone https://github.com/<USERNAME>/<REPO>.git
+git clone https://github.com/jacinjacob1/self-explainable-wgangp.git
 cd <REPO>
 python -m venv venv && source venv/bin/activate    # optional
 pip install -r requirements.txt
