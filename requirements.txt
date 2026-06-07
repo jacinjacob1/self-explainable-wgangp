@@ -1,0 +1,38 @@
+# =====================================================================
+# Requirements for the IEEE Access revision codebase
+#   v17.py / v17_inline_kmex.py (proposed model)
+#   baseline_conditional.py (DCGAN-cond / WGAN-GP-cond / SAGAN-lite-cond)
+#   score_recovery.py (slice-selection rule reverse-engineering)
+#   compute_metrics.py (FID/KID/LPIPS/PR/Diversity — forthcoming)
+# =====================================================================
+
+# --- Core deep learning ---
+# Pin to PyTorch 2.x for stability with Captum and modern CUDA.
+torch>=2.0.0,<2.5
+torchvision>=0.15.0,<0.20
+
+# --- Numerics, data, plotting ---
+numpy>=1.24,<2.0          # NumPy 2.x breaks some packages; pin to 1.x for safety
+scipy>=1.10                # Used by score_recovery (signal-driven slice selection) and by FID
+pandas>=2.0                # CSV manipulation in score_recovery
+h5py>=3.8                  # BraTS .h5 file reader
+matplotlib>=3.7            # Sample / training-curve plots
+seaborn>=0.12              # Optional: publication-quality plots for the paper
+Pillow>=9.5                # Image I/O (overlay PNG cache)
+tqdm>=4.65                 # Progress bars
+
+# --- Machine learning ---
+scikit-learn>=1.3          # KMeans for KMEx mining (post-hoc + inline)
+scikit-image>=0.21         # SSIM, MS-SSIM (for MMIS metric)
+
+# --- Explainability ---
+captum>=0.7                # LayerLRP for PRP heatmaps
+
+# --- Metrics (forthcoming compute_metrics.py) ---
+torch-fidelity>=0.3.0      # FID / KID computation against reference image folders
+lpips>=0.1.4               # LPIPS perceptual distance
+prdc>=0.2                  # Precision/Recall for generative models (Kynkäänniemi et al., 2019)
+
+# --- Utilities (nice-to-have for clean code & experiment tracking) ---
+PyYAML>=6.0                # If you ever want config files
+einops>=0.6                # Cleaner tensor reshape (used in some metric implementations)
